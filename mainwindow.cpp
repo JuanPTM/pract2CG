@@ -31,6 +31,18 @@ void MainWindow::initCamera()
 	scene = new QGraphicsScene;
 }
 
+void MainWindow::addBox(osg::Vec3 pos, float x, float y, float z, osg::Vec4 color)
+{
+	osg::Box *box = new osg::Box( pos, x, y, z);
+	osg::ShapeDrawable *boxDrawable = new osg::ShapeDrawable(box);
+	boxDrawable->setColor(color);
+	osg::Geode* shapeGeode = new osg::Geode();
+	shapeGeode->addDrawable(boxDrawable);
+	auto pat = new osg::PositionAttitudeTransform;
+	pat->addChild(shapeGeode);
+	osgw->getRootGroup()->addChild(pat);
+}
+
 void MainWindow::init3D()
 {
 osg::Node *osgMesh = osgDB::readNodeFile("../gualzru.osg");

@@ -34,7 +34,7 @@ private slots:
 private:
 	void initCamera();
 	void init3D();
-
+	void addBox(osg::Vec3 pos, float x, float y, float z, osg::Vec4 color)
 	void updateImage();
 	void updateImageInWindow();
 
