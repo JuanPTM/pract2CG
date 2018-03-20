@@ -76,11 +76,12 @@ else
      pat_bb->setPosition(osg::Vec3(0.0f/sc,0.0f/sc,5.0f/sc));
      
 	
-	osg::Box *box = new osg::Box( osg::Vec3(0,0,0), 2/sc, 2/sc, 2/sc);
+	osg::Box *box = new osg::Box( osg::Vec3(0,0,0), 2/sc, 0.5/sc, 2/sc);
 	osg::ShapeDrawable *boxDrawable = new osg::ShapeDrawable(box);
 	boxDrawable->setColor(osg::Vec4(1,0,1,1));
 	
 	osg::Billboard *bb = new osg::Billboard();  
+	bb->setMode(osg::Billboard::POINT_ROT_EYE);
 	bb->addDrawable(boxDrawable);
 
 	pat_bb->addChild(bb);	
@@ -92,7 +93,7 @@ else
 
 void MainWindow::computeOSG()
 {
-	rx += 0.1;
+	rx += 0.05;
 	smt->setAttitude(osg::Quat(rx,osg::Vec3(1,0,0)));
 	osgw->frame();
 }
