@@ -17,7 +17,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
 
 	init3D();
 
-	timerOSG.start(2);
+	timerOSG.start(20);
 	connect(&timerOSG, SIGNAL(timeout()), this, SLOT(computeOSG()));
 }
 
@@ -64,8 +64,11 @@ if (osgMesh==NULL)
 else
 {
      float sc = 0.05; float rx = 0.3;
-     osg::MatrixTransform *smt = new osg::MatrixTransform;
-     smt->setMatrix(osg::Matrix::scale(sc,sc,sc) * osg::Matrix::rotate(rx, osg::Vec3(1,1,1)));
+     smt = new osg::PositionAttitudeTransform;
+     smt->setPosition(osg::Vec3(0.0f,-10.0f,0.0f));
+     smt->setScale(osg::Vec3(sc,sc,sc));
+     smt->setAttitude(osg::Quat(rx,osg::Vec3(1,1,1)));
+     //smt->setMatrix(osg::Matrix::scale(sc,sc,sc) * osg::Matrix::rotate(rx, osg::Vec3(1,1,1))*osg::Matrix::translate(0.0f,-10.0f,0.0f));
      osgw->getRootGroup()->addChild(smt);
      smt->addChild(osgMesh);
 }
@@ -75,6 +78,7 @@ else
 
 void MainWindow::computeOSG()
 {
-
+	rx += 0.1;
+	smt->setAttitude(osg::Quat(rx,osg::Vec3(1,0,1)));
 	osgw->frame();
 }

@@ -46,7 +46,7 @@ private:
        
 	osg::Matrix mat;
 	float rx=0;
-	osg::MatrixTransform *smt;
+	osg::PositionAttitudeTransform *smt;
 	OsgView *osgw;
 	osg::PositionAttitudeTransform *pats[4];
 	osg::Geode * geodes[4];
