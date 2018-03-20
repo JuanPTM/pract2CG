@@ -45,6 +45,17 @@ void MainWindow::addBox(osg::Vec3 pos, float x, float y, float z, osg::Vec4 colo
 
 void MainWindow::init3D()
 {
+ loadMesh();
+
+addBox(osg::Vec3(10, 1, 1), 5, 5, 5,osg::Vec4(1,0,0,1));
+addBox(osg::Vec3(1, 10, 1), 5, 5, 5,osg::Vec4(0,1,0,1));
+addBox(osg::Vec3(1, 1, 10), 5, 5, 5,osg::Vec4(0,0,1,1));
+
+
+}
+
+void MainWindow::loadMesh()
+{
 osg::Node *osgMesh = osgDB::readNodeFile("../gualzru.osg");
 if (osgMesh==NULL)
 {
@@ -58,16 +69,6 @@ else
      osgw->getRootGroup()->addChild(smt);
      smt->addChild(osgMesh);
 }
-
-
-osg::Box *box = new osg::Box( osg::Vec3(10, 1, 1), 10, 5, 5);
-osg::ShapeDrawable *boxDrawable = new osg::ShapeDrawable(box);
-boxDrawable->setColor(osg::Vec4(1,0,0,1));
-osg::Geode* shapeGeode = new osg::Geode();
-shapeGeode->addDrawable(boxDrawable);
-auto pat = new osg::PositionAttitudeTransform;
-pat->addChild(shapeGeode);
-osgw->getRootGroup()->addChild(pat);
 
 
 }

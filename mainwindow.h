@@ -34,22 +34,23 @@ private slots:
 private:
 	void initCamera();
 	void init3D();
-	void addBox(osg::Vec3 pos, float x, float y, float z, osg::Vec4 color)
+	void addBox(osg::Vec3 pos, float x, float y, float z, osg::Vec4 color);
 	void updateImage();
 	void updateImageInWindow();
+	void loadMesh();
 
 private:
 	QTimer timerOSG;
 	Ui::MainWindow *ui;
 	QGraphicsScene *scene;
-
+       
 	osg::Matrix mat;
 	float rx=0;
 	osg::MatrixTransform *smt;
 	OsgView *osgw;
 	osg::PositionAttitudeTransform *pats[4];
 	osg::Geode * geodes[4];
-
+ 	
 };
 
 #endif // MAINWINDOW_H
