@@ -1,0 +1,18 @@
+
+Ejercicios:
+
+0. Compilar y ejecutar el ejemplo base
+1. Añadir una caja a la escena y comprobar que se ve y nos podemos mover por la escena
+2. Añadir una malla.
+3. Crear la siguiente escena:
+	a) Tres cajas, de colores rojo, verde y azul, indicando los ejes x, y, z
+	b) Una maya en una posición cualquiera a una unidad del centro.
+		b.1) Usad gualzru.osg, disponible en esta plantilla
+		b.2) Preguntadme por las unidades
+	c) Hacer que la malla vaya girando aleatoriamente
+4. Añadir otra malla, esta vez deberemos buscar una por Internet, y situarla
+   encima de la cabeza del personaje de la malla inicial
+5. Usando un billboard, hacer que la malla anterior esté siempre orientada hacia la cámara
+6. Cambiar el TrackballManipulator por defecto
+7. Usar osg::Switch para hacer desaparecer uno de los ejes en función del tiempo, alternando
+   cada 100 frames.
