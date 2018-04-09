@@ -16,3 +16,6 @@ Ejercicios:
 6. Cambiar el TrackballManipulator por defecto
 7. Usar osg::Switch para hacer desaparecer uno de los ejes en función del tiempo, alternando
    cada 100 frames.
+8 usar dos luces: una blanca y otra roja. La blanca ha de moverse(como prefirais).
+9 Asignar textura a una casa.
+10 Asignar textura a una caja dinamicamente, usando flujo de video.

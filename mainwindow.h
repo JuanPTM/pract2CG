@@ -35,6 +35,8 @@ private:
 	void initCamera();
 	void init3D();
 	void addBox(osg::Vec3 pos, float x, float y, float z, osg::Vec4 color);
+	osg::ref_ptr<osg::LightSource> addLight(int lightnum, osg::Vec4 pos, osg::Vec4 specular, osg::Vec4 diffuse, osg::Vec4 ambient);
+	osg::PositionAttitudeTransform* getBox(osg::Vec3 pos, float x, float y, float z, osg::Vec4 color);
 	void updateImage();
 	void updateImageInWindow();
 	void loadMesh();
@@ -43,14 +45,14 @@ private:
 	QTimer timerOSG;
 	Ui::MainWindow *ui;
 	QGraphicsScene *scene;
-       
+
 	osg::Matrix mat;
 	float rx=0;
-	osg::PositionAttitudeTransform *smt;
+	osg::PositionAttitudeTransform *smt,*pat_bbRotatelight;
 	OsgView *osgw;
 	osg::PositionAttitudeTransform *pats[4];
 	osg::Geode * geodes[4];
- 	
+
 };
 
 #endif // MAINWINDOW_H
